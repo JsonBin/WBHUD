@@ -160,6 +160,7 @@
         upAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         
         CAAnimationGroup *group = [CAAnimationGroup animation];
+        group.removedOnCompletion = NO;
         group.duration = self.duration;
         group.delegate = self;
         group.animations = @[animation, upAnimation];

@@ -33,11 +33,9 @@ open class WBRoundViewHUD: UIView {
     public var duration: CFTimeInterval = 1.0
     
     private var _type: HUDType = .uniform  // 动画的类型，默认为 .uniform
-    open var _animationCount = 0  // 已运动的小球个数
-    
-    open private(set) var _caLayers: [CALayer]?
-    
-    open static let defaultWidth:CGFloat = 50
+    fileprivate var _animationCount = 0  // 已运动的小球个数
+    fileprivate private(set) var _caLayers: [CALayer]?
+    fileprivate static let defaultWidth:CGFloat = 50
     private let loadingWidth = WBRoundViewHUD.defaultWidth // 默认大小
     private let max_count:Int = 6    // 一共有多少个小球
     private let s_w = UIScreen.main.bounds.size.width
@@ -151,6 +149,7 @@ open class WBRoundViewHUD: UIView {
             upAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             
             let group = CAAnimationGroup()
+            group.isRemovedOnCompletion = false
             group.duration = duration
             group.delegate = self
             group.animations = [animation, upAnimation]

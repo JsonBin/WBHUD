@@ -47,7 +47,7 @@ open class WBProgressViewHUD: UIView {
     
     private var _type: HUDType = .single  // 旋转动画的类型, 默认为 .single
     
-    open  static let defaultWidth: CGFloat = 50
+    fileprivate static let defaultWidth: CGFloat = 50
     private let loadingWidth = WBProgressViewHUD.defaultWidth // 默认大小
     private let s_w = UIScreen.main.bounds.size.width
     private let s_h = UIScreen.main.bounds.size.height
